@@ -6,6 +6,7 @@
 	}
 	$user_id = $_SESSION['user_id'];
 	require("../dataconn/page_load.php");
+	require("../utility/logout.php");
 	$user_id = $_SESSION['user_id'];
 	$result = mysql_query("SELECT * FROM user WHERE User_ID = '$user_id'");
 	$row = mysql_fetch_assoc($result);
@@ -64,7 +65,7 @@ table
         <p style="text-align:center; line-height: 20px;">Welcome, <?php echo $row['User_Name'];?></p>
         <ul id="home">
           <li class="b1"><a class="icon profile" href="adminProfile.php" >View profile</a></li>
-          <li class="b1"><a class="icon logout" href="../visitor/visitor.php">Log Out</a></li>
+          <li class="b1"><a class="icon logout" href="<?php echo $logoutAction ;?>">Log Out</a></li>
         </ul>
       </div>
       <div class="box">
