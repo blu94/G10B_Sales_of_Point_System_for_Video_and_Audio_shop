@@ -37,7 +37,7 @@
 		<div id='buy_history_div_control' class="cont_element1 col span_5_of_5 pro_char">
       <?php
         $row_counter = 1;
-        $subtotal=0;
+        
         $select_distinct_date_sql = "SELECT distinct sold_date FROM `sold` WHERE user_id=".$user_id;
         $select_distinct_date_exe = mysql_query($select_distinct_date_sql);
         $select_distinct_date_row = mysql_num_rows($select_distinct_date_exe);
@@ -45,6 +45,7 @@
           echo "You are not buying anything yet!";
         }
         else {
+        	$subtotal=0;
           while($select_distinct_date_row = mysql_fetch_array($select_distinct_date_exe)){
             $transaction_date = $select_distinct_date_row['sold_date'];
             echo "<div id='' class='transaction_date'>
@@ -100,7 +101,7 @@
     <div id='rent_history_div_control' class="cont_element1 col span_5_of_5 pro_char">
       <?php
         $row_counter = 1;
-        $subtotal=0;
+        
         $select_distinct_date_sql = "SELECT distinct rent_date, Rent_Exp_Date FROM `rent` WHERE user_id=".$user_id;
         $select_distinct_date_exe = mysql_query($select_distinct_date_sql);
         $select_distinct_date_row = mysql_num_rows($select_distinct_date_exe);
@@ -108,6 +109,7 @@
           echo "You are not buying anything yet!";
         }
         else {
+        	$subtotal=0;
           while($select_distinct_date_row = mysql_fetch_array($select_distinct_date_exe)){
             $transaction_date = $select_distinct_date_row['rent_date'];
             $transaction_exp_date = $select_distinct_date_row['Rent_Exp_Date'];
